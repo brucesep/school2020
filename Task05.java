@@ -6,6 +6,9 @@
 public class Task05 {
     public static void main(String[] args) {
 
+        int minNumber;
+        int maxNumber;
+
         int[] massive = new int[20];
         for (int i = 0; i < 20; i++){
             massive[i] = (int) (Math.random() * 100);
@@ -16,14 +19,13 @@ public class Task05 {
         for (int g = 0; g < 19; g++){
             for (int j = 0; j < 19; j++){
                 if (massive[j] > massive[j+1]){
-                    int naim = massive[j+1];
-                    int naib = massive[j];
-                    massive[j] = naim;
-                    massive[j+1] = naib;
+                    minNumber = massive[j+1];
+                    maxNumber = massive[j];
+                    massive[j] = minNumber;
+                    massive[j+1] = maxNumber;
                 }
             }
         }
-
 
         System.out.println();
         for (int k = 0; k < 20; k++){
