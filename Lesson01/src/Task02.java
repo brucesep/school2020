@@ -7,18 +7,22 @@ import java.util.Scanner;
 
 public class Task02 {
     public static void main(String[] args) {
+
         int a = 45;
         int b = 7;
-        System.out.println(a + " / " + b + " = " + a/b + " и " + a%b + " в остатке");
+        printInfo(a, b);
 
         Scanner in1 = new Scanner(System.in);
         System.out.println("Введите первое целое число");
         int c = in1.nextInt();
         System.out.println("Введите второе целое число");
         int d = in1.nextInt();
-
-        System.out.println(c + " / " + d + " = " + c/d + " и " + c%d + " в остатке");
-
         in1.close();
-    }
+
+        printInfo(c, d);
+        }
+
+        public static void printInfo(int number1, int number2){
+            System.out.println(number1 + " / " + number2 + " = " + number1/number2 + " и " + number1%number2 + " в остатке");
+        }
 }
