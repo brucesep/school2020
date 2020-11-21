@@ -8,14 +8,15 @@ public class Task03 {
 
         int count;
 
-        for (int i = 2; i < 100; i++){
+        for (int i = 2; i < 101; i++){
             count = 0;
-            for (int k = 2; k < i+1; k++){
+            for (int k = 2; k < i; k++){
                 if (i % k == 0) {
                     count++;
+                    if (count > 0) break;
                 }
             }
-            if (count == 1) {
+            if (count == 0) {
                 System.out.println(i);
             }
         }
