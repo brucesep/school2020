@@ -24,13 +24,11 @@ public class Task05 {
             System.out.print(massive[i] + " ");
         }
 
-        int minNumber;
-        int maxNumber;
         for (int g = 0; g < razM-1; g++) {
             for (int j = 0; j < razM-1; j++) {
-                if (massive[j] > massive[j + 1]) {
-                    minNumber = massive[j + 1];
-                    maxNumber = massive[j];
+                int minNumber = massive[j+1];
+                int maxNumber = massive[j];
+                if (maxNumber > minNumber) {
                     massive[j] = minNumber;
                     massive[j + 1] = maxNumber;
                 }
