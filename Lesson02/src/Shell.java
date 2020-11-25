@@ -25,31 +25,29 @@ public class Shell {
 
     public static void main(String[] args) {
 
-        String[] commandList = {"date", "time", "exit"};
-
+        Command[] commandList = {new CommandTime(), new CommandDate(), new CommandExit()};
         String executeCom;
+        int count = 0;
 
-        while (true){
+        while (true) {
+            boolean isExecute = false;
             executeCom = enterCommand();
-            if (executeCom.equals(commandList[2])){
-                command = new CommandExit(executeCom);
-                executing();
+            for (Command command : commandList) {
+                if ((command.getName()).equals(executeCom.toLowerCase())){
+                    executing(command);
+                    isExecute = true;
+                }
+            }
+            if (!isExecute) System.out.println("Введите команду из списка!");
+            count++; //добавил т.к. IDEA ругалась на бесконечный цикл
+            if (count == 3) {
+                System.out.println("Слишком много неверных команд! Выполнение программы завершено!");
                 break;
-            } else  if (executeCom.equals(commandList[0])){
-                command = new CommandDate(executeCom);
-                executing();
-            }
-             else if (executeCom.equals(commandList[1])){
-                command = new CommandTime(executeCom);
-                executing();
-            }
-            else{
-                System.out.println("Введите команду из списка!");
             }
         }
     }
 
-        public static void executing () {
+        public static void executing (Command command) {
             System.out.println("Имя команды: " + command.getName());
             command.execute();
         }

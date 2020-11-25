@@ -4,20 +4,10 @@ import java.util.Date;
 
 public class CommandTime implements Command {
 
-    String name;
-
-    public CommandTime(String name) {
-        this.name = name;
-    }
-
-
+    static final String name = "time";
     @Override
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override
