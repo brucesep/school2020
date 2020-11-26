@@ -33,28 +33,28 @@ public class Shell {
             boolean isExecute = false;
             executeCom = enterCommand();
             for (Command command : commandList) {
-                if ((command.getName()).equals(executeCom.toLowerCase())){
+                if ((command.getName()).equals(executeCom.toLowerCase())) {
                     executing(command);
                     isExecute = true;
                 }
             }
-            if (!isExecute) System.out.println("Введите команду из списка!");
             count++; //добавил т.к. IDEA ругалась на бесконечный цикл
             if (count == 3) {
                 System.out.println("Слишком много неверных команд! Выполнение программы завершено!");
                 break;
             }
+            if (!isExecute) System.out.println("Введите команду из списка!");
         }
     }
 
-        public static void executing (Command command) {
-            System.out.println("Имя команды: " + command.getName());
-            command.execute();
-        }
-
-        public static String enterCommand() {
-            System.out.println("Введите команду (time, date, exit):");
-            Scanner scan = new Scanner(System.in);
-            return scan.nextLine();
-        }
+    public static void executing(Command command) {
+        System.out.println("Имя команды: " + command.getName());
+        command.execute();
     }
+
+    public static String enterCommand() {
+        System.out.println("Введите команду (time, date, exit):");
+        Scanner scan = new Scanner(System.in);
+        return scan.nextLine();
+    }
+}
