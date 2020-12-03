@@ -1,5 +1,3 @@
-import sun.applet.AppletResourceLoader;
-
 import java.util.*;
 
 public class ListBuilding {
@@ -61,11 +59,30 @@ public class ListBuilding {
         System.out.println("--------------------------------");
 
         //Теперь создаём карту
-        HashMap<Object, Collection > testMap = new HashMap<>();
+        Map<Object, Collection> testMap = new HashMap<>();
         testMap.put("some key", testTree);
-        testMap.put(123, testTree);
+        testMap.put(123, testList);
         System.out.println(testMap);  // и печатаем эту карту
 
+        //Создаем вторую карту со средними значениями
+        Map<Object, Integer> testMap2 = new ListBuilding().newMapTest(testMap);
+        System.out.println("Вторая карта на основе первой (среднее арифметическое):");
+        System.out.println(testMap2);
+
+
+    }
+
+    Map<Object, Integer> newMapTest(Map<Object, Collection> testMaps){
+        Map<Object,  Integer> promMap = new HashMap<>();
+        for (Map.Entry<Object, Collection> entry : testMaps.entrySet()){
+            Integer summ = 0, count = 0;
+            for (Object element: entry.getValue()){
+                count ++;
+                summ = summ + (int)element;
+            }
+            promMap.put(entry.getKey(), summ/count);
+        }
+        return promMap;
     }
 
 
